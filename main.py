@@ -3,7 +3,7 @@ import scrapy
 
 #logging.getLogger('scrapy').setLevel(logging.WARNING)
 
-with open('pkm') as f:
+with open('pkm-names.txt') as f:
     pknames = [line.rstrip() for line in f]
 
 class BulbaSpider(scrapy.Spider):
@@ -13,7 +13,7 @@ class BulbaSpider(scrapy.Spider):
         'FEED_EXPORT_ENCODING': "utf-8",
     }
 
-    start_urls = [f"https://bulbapedia.bulbagarden.net/wiki/{mon}_(Pok%C3%A9mon)" for mon in pknames]
+    start_urls = [f"https://bulbapedia.bulbagarden.net/wiki/{mon}_(Pok%C3%A9mon)" for mon in pknames[:3]]
 
     def parse(self, response):
         #print("".join(response.css("div#mw-content-text>table")[0].css("::text").extract()))

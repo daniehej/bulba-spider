@@ -3,7 +3,7 @@ import scrapy
 
 #logging.getLogger('scrapy').setLevel(logging.WARNING)
 
-with open('items.txt') as f:
+with open('item-names.txt') as f:
     names = [line.rstrip() for line in f]
 
 class BulbaSpider(scrapy.Spider):
